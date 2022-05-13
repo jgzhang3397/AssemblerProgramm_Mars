@@ -27,7 +27,7 @@
 		
 		addi $s1, $s1, 20 # s1 = s1 + 20 = 30
 		
-		#nested Procedure
+		# nested Procedure
 		jal printValue
 		
 		lw $s1, 0($sp) # load the word from stack $sp->0 to $s1
