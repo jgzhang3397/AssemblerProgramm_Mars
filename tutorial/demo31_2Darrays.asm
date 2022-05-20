@@ -26,6 +26,7 @@
 	    li $v0, 0 # sum = 0
 	    li $t0, 0 # $t0 als index
 	    
+	    # sum = sum + array[i][i]
 	    sumLoop:
 	    	mul  $t1, $t0, $a1 	 # $t1 = rowIndex * colSize
 	    	add  $t1, $t1, $t0 	 # $t1 = ... + colIndex, rowIndex == colIndex, bez we add only Diagonal
