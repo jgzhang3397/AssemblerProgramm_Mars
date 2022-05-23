@@ -5,7 +5,7 @@
 # sonderfall n = 0,1
 
 .data
-	n: 	.word 9
+	n: 	.word 10
 	erg: 	.word 0
 .text
 	main:
