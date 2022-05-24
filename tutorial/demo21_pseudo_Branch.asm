@@ -7,6 +7,8 @@
 		addi $t0, $zero, 3
 		addi $t1, $zero, 2
 		
+		# branch if greater than : bgt
+		# branch if greater than zero : bgtz
 		# bgtz $t0, printMessage
 		bgt  $t0, $t1, printMessage
 		
