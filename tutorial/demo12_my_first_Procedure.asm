@@ -1,11 +1,10 @@
-### my first Procedure
+# my first Procedure
 
 .data
 	message: .asciiz "hi everyone!\nmy name is Jingang\n"
 .text
 	main:
 		jal printMessage
-		
 		
 		addi $s0, $zero, 5
 		
@@ -15,7 +14,7 @@
 		syscall
 		
 	
-	#tell the system that the program is done! or died cycle
+	# tell the system that the program is done! or died cycle
 	li $v0, 10
 	syscall
 	

@@ -1,7 +1,7 @@
-### getting users inputs float
+# getting users inputs float
 
 .data
-	message: 	.asciiz "enter the value of PI: "
+	message: 	    .asciiz "enter the value of PI: "
 	zeroAsFloat: 	.float 0.0 # make own default for zero register
 .text
 

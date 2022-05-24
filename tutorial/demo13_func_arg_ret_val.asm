@@ -1,4 +1,4 @@
-### function arguments and return values
+# function arguments and return values
 
 .data
 
@@ -9,12 +9,13 @@
 		
 		jal addNumbers
 		
-		li $v0, 1
+		# print result
+		li  $v0, 1
 		add $a0, $zero, $v1
 		syscall
 		
 	
-	#ende the cycle
+	# ende the cycle
 	li $v0, 10
 	syscall
 	
