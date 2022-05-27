@@ -12,7 +12,7 @@
 			bgt $t0, 10, exit
 			
 			jal printNumbers
-			addi $t0, $t0, 1 #i++
+			addi $t0, $t0, 1 # i++
 			
 			j while
 		
@@ -35,8 +35,7 @@
 		li $v0, 4
 		la $a0, space
 		syscall
-		
-		# return addresse addi $t0, $t0, 1 #i++
+	
 		jr $ra
 		
 	
