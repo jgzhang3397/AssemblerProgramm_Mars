@@ -12,8 +12,8 @@ sw $s7, 28($sp)
 
 .macro sregcheck_cmpone(%o, %x)
 lw $t1, %o($sp)
-seq $t1, $t1, %x
-and $t0, $t0, $t1
+seq $t1, $t1, %x  # if $t1 == %x set $t1 = 1 elso 0
+and $t0, $t0, $t1 # $t0 == $t0 & $t1
 
 .end_macro
 

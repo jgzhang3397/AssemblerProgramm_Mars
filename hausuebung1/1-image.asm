@@ -14,41 +14,43 @@ main:
 	jal allocatePicture
 	
 	addi $sp, $sp, -16
-	sw $s0, 0($sp) #index
-	sw $s1, 4($sp) #current address
-	sw $s2, 8($sp) #pixel count
-	sw $s3, 12($sp) # last pixel
+	sw   $s0, 0($sp) # index
+	sw   $s1, 4($sp) # current address
+	sw   $s2, 8($sp) # pixel count
+	sw   $s3, 12($sp)# last pixel
 	
 
 	addi $s0, $0, 0
-	la $s1, img
+	la   $s1, img  # img --> $s1
 	addi $s2, $0, 1024
 	addi $s3, $0, 0
 	
 	loop:
 	
-	slt $t0, $s0, $s2
+	slt  $t0, $s0, $s2 
 	beqz $t0, fin
 	
 	
-	lw $t0, 0($s1)
-	sw $0, 0($s1)
-	add $t0, $t0, $s3
-	addi $s3, $t0, 0
+	lw   $t0,   0($s1) # $s1 --> $t0
+	sw   $zero, 0($s1) # $zero --> $s1
+	add  $t0, $t0, $s3 # $t0 == $t0 + $s3
+	addi $s3, $t0, 0   # $s3 == $t0 + 0
 	
-	mul $t0, $s0, 257
+	mul  $t0, $s0, 257 # $t0 == $s0 * 257
 	
-	andi $a0, $t0, 31
-	srl $a1, $t0, 5
-	andi $a1, $a1, 31
-	addi $t0, $0, 0
-	addi $a2, $s3, 0
-	jal setPixel
+	andi $a0, $t0, 31  # $a0 == $t0 and 31 bitweise
+	srl  $a1, $t0, 5   # $a1 == $t0 / (2^5)
+	andi $a1, $a1, 31  # $a1 == $a1 and 31 bitweise 0001 1111
+	addi $t0, $zero, 0 # $t0 == 0
+	addi $a2, $s3, 0   # $a2 == $s3
 	
-	addi $s0, $s0, 1
-	addi $s1, $s1, 4
+	jal  setPixel
+	
+	addi $s0, $s0, 1 # i++
+	addi $s1, $s1, 4 
 	
 	b loop
+	
 	fin:
 	
 	

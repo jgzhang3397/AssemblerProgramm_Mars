@@ -24,24 +24,29 @@ main:
 	la $s1, val_b
 	la $s2, res
 	
-	addi $s3, $0, 0
+	addi $s3, $0, 0 # $s3 = 0
 chkloop:	
-	add $t0, $s0, $s3
-	lw $a0, 0($t0)
+	add $t0, $s0, $s3 
+	lw  $a0, 0($t0)
+
 	add $t0, $s1, $s3
-	lw $a1, 0($t0)
+	lw  $a1, 0($t0)
+
 	add $t0, $s2, $s3
-	lw $s4, 0($t0)
+	lw  $s4, 0($t0)
+
         sregcheck_save ()
+
 	jal fixedmul
+
 	sregcheck_compare ()
-	bne $v0, $s4, fail
-	addi $s3, $s3, 4
-	addi $t2, $0, 28
-	bne $t2, $s3, chkloop
+
+	bne  $v0, $s4, fail
+	addi $s3, $s3, 4  # $s3 = $s3 + 4
+	addi $t2, $0, 28  # $t2 = 28
+	bne  $t2, $s3, chkloop # if $t2 != $s3 goto chkloop
 	
-
-
+	
 	# exit the program
 	la $a0, str_ok
 	addi $v0, $0, 4
