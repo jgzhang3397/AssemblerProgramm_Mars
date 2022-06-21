@@ -13,7 +13,7 @@
 	mflo $s0
 	mfhi $s1
 	
-	#display the product to the screen
+	# display the product to the screen
 	li $v0, 1   # print out integer
 	
 	add $a0, $zero, $s0
