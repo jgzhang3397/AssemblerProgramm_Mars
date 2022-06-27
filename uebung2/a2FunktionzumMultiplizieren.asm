@@ -4,18 +4,18 @@
 .text
 	main:
 		# int x = 5, y = 6;
-		addi $a1, $zero, 5
-		addi $a2, $zero, 6
-		
-		# store z in $v1, z = 0
-		sw $v1, z
+		addi 	$a1, $zero, 5
+		addi 	$a2, $zero, 6
 		
 		# call the function
-		jal multi
+		jal 	multi
 		
 		# z = z+x+y
-		add $v1, $v1, $a1
-		add $v1, $v1, $a2
+		add 	$v0, $v1, $a1
+		add 	$v0, $v0, $a2
+		
+		lw  	$v1, z 
+		move  	$v1, $v0
 		
 		# print z on screen
 		li  $v0, 1

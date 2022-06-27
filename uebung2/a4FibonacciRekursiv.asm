@@ -38,7 +38,7 @@
 		lw    $ra, 0($sp)  # restore $ra
 		lw    $t0, 8($sp)  # fibo(a-1)--> $t0
 		addi  $sp, $sp, 12 # stack free
-		add   $v1, $t0, $v1# fibo(a-1) + fibo(a-2)
+		add   $v1, $t0, $v1 # fibo(a-1) + fibo(a-2)
 	
 		return:
 			jr   $ra
